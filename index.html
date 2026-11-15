@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>cat 的工具箱 · 常用软件与资源</title>
+<meta name="description" content="cat 的工具箱：收录常用软件下载与实用资源，附安装说明与常见问题。">
+<link rel="canonical" href="https://chenzhong.dpdns.org/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="cat 的公益节点 · 免费 VLESS 节点">
+<meta property="og:description" content="常用软件与实用资源整理，附安装与使用说明。">
+<meta property="og:url" content="https://chenzhong.dpdns.org/">
+<meta name="theme-color" content="#0a0d12">
+<meta name="author" content="cat">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%90%B1%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"WebSite","@id":"https://chenzhong.dpdns.org/#website","url":"https://chenzhong.dpdns.org/","name":"cat 的公益节点","inLanguage":"zh-CN","description":"常用软件与资源"},
+ {"@type":"Organization","@id":"https://chenzhong.dpdns.org/#org","name":"cat 的公益节点","url":"https://chenzhong.dpdns.org/"},
+ {"@type":"WebPage","@id":"https://chenzhong.dpdns.org/#page","url":"https://chenzhong.dpdns.org/","name":"cat 的公益节点","datePublished":"2026-11-14","dateModified":"2026-11-14","isPartOf":{"@id":"https://chenzhong.dpdns.org/#website"}},
+ {"@type":"FAQPage","mainEntity":[
+   {"@type":"Question","name":"这个节点怎么使用？","acceptedAnswer":{"@type":"Answer","text":"复制页面上的 vless 链接，在 v2rayN、v2rayNG、NekoBox 等客户端中选择从剪贴板导入即可。"}},
+   {"@type":"Question","name":"节点需要付费吗？","acceptedAnswer":{"@type":"Answer","text":"完全免费，长期维护。"}},
+   {"@type":"Question","name":"支持哪些平台？","acceptedAnswer":{"@type":"Answer","text":"Windows、Android、macOS、iOS，任何支持 VLESS + WebSocket + TLS 的客户端都可以。"}}
+ ]}
+]}
+</script>
+<style>
+  :root{--bg:#0a0d12;--bg2:#0f1620;--card:#111823;--line:#1f2b3a;--txt:#e8eef6;--dim:#8b9bb0;--acc:#39d98a;--blue:#4c9aff}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{color-scheme:dark}
+  body{background:radial-gradient(900px 500px at 50% -120px,#16233a 0%,var(--bg) 60%);color:var(--txt);
+       font:16px/1.75 -apple-system,"Segoe UI",Roboto,"Microsoft YaHei",sans-serif;min-height:100vh;padding:28px 18px}
+  .skip{position:absolute;left:-9999px;top:0;background:var(--blue);color:#fff;padding:10px 16px;border-radius:0 0 8px 0;z-index:9}
+  .skip:focus{left:0}
+  .wrap{max-width:660px;margin:0 auto}
+  header.masthead{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+  .cat{font-size:38px;line-height:1}
+  h1{font-size:24px;letter-spacing:.5px}
+  .sub{color:var(--dim);font-size:13px}
+  .dot{width:9px;height:9px;border-radius:50%;background:var(--acc);display:inline-block;margin-right:6px;box-shadow:0 0 10px var(--acc)}
+  nav.quick{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 18px}
+  nav.quick a{color:var(--dim);text-decoration:none;font-size:13px;border:1px solid var(--line);border-radius:999px;padding:6px 12px}
+  nav.quick a:hover{color:var(--txt);border-color:var(--blue)}
+  section.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:16px}
+  section.card h2{font-size:15px;color:var(--dim);font-weight:600;letter-spacing:1px;margin-bottom:14px;text-transform:uppercase}
+  section.card h3{font-size:15px;margin:14px 0 6px}
+  dl.rows{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:14px}
+  dl.rows dt{color:var(--dim);border-bottom:1px dashed #1a2432;padding:6px 0}
+  dl.rows dd{border-bottom:1px dashed #1a2432;padding:6px 0;text-align:right;word-break:break-all}
+  code{background:#0c1219;border:1px solid var(--line);border-radius:8px;padding:10px 12px;display:block;
+       font-size:12.5px;color:#9fd7ff;word-break:break-all;line-height:1.6;margin:10px 0}
+  button{background:var(--blue);color:#fff;border:none;border-radius:9px;padding:10px 18px;font-size:14px;cursor:pointer;transition:.15s}
+  button:hover{filter:brightness(1.1)}
+  button.ok{background:var(--acc);color:#06210f}
+  ol.steps{padding-left:20px;font-size:14px;color:#cfdae7}
+  ol.steps li{margin:6px 0}
+  .tip{font-size:13px;color:var(--dim);margin-top:10px}
+  footer.site{text-align:center;color:var(--dim);font-size:12px;margin-top:18px}
+  footer.site a{color:var(--dim)}
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到主要内容</a>
+<div class="wrap">
+  <header class="masthead">
+    <div class="cat" aria-hidden="true">🐱</div>
+    <div>
+      <h1>cat 的工具箱</h1>
+      <p class="sub"><span class="dot"></span>常用软件 · 实用资源 · 持续更新</p>
+    </div>
+  </header>
+
+  <nav class="quick" aria-label="页面导航">
+    <a href="#how">使用说明</a>
+    <a href="#faq">常见问题</a>
+    <a href="#privacy">隐私政策</a>
+  </nav>
+
+  <main id="main"><section class="card" id="gate"><h2>内部资源</h2><p class="tip">部分配置需要口令访问。</p><div style="display:flex;gap:8px"><input id="pin" type="password" placeholder="输入口令" style="flex:1;background:#0c1219;border:1px solid #1f2b3a;border-radius:8px;color:#e6eef6;padding:10px 12px"><button id="pinBtn" type="button" style="background:#4c9aff;border:none;border-radius:8px;color:#fff;padding:10px 18px;cursor:pointer">解锁</button></div><div id="unlocked" style="display:none;margin-top:14px"><p class="tip">复制到客户端导入：</p><code id="cfg" style="word-break:break-all"></code></div><p id="pinMsg" class="tip" style="color:#ff9d9d"></p></section><div style="max-width:660px;margin:0 auto 16px;padding:12px 16px;border-radius:10px;background:#3a2a00;border:1px solid #7a5c00;color:#ffd479;font-size:14px">📢 站点资源持续更新，有问题可以留言</div><section class="card" id="sites"><h2>推荐站点</h2><ul class="steps"><li><a href="https://digitalplat.org/" target="_blank" rel="noopener nofollow">DigitalPlat 免费域名</a></li><li><a href="https://www.dnshe.com/" target="_blank" rel="noopener nofollow">DNSHE 域名服务</a></li></ul></section><section class="card" id="apps"><h2>软件下载</h2><div class="row" style="display:flex;justify-content:space-between;gap:10px;border-bottom:1px dashed #1f2b3a;padding:10px 0"><span><strong>v2rayNG</strong> <span style="color:#8b9bb0;font-size:12px">2.3.15</span> <span style="color:#8b9bb0;font-size:12px">· 32MB</span><br><span style="color:#8b9bb0;font-size:13px">安卓代理客户端，支持 VLESS</span></span><a href="https://github.com/2dust/v2rayNG/releases" target="_blank" rel="noopener nofollow" style="color:#4c9aff;text-decoration:none;white-space:nowrap">下载 →</a></div><div class="row" style="display:flex;justify-content:space-between;gap:10px;border-bottom:1px dashed #1f2b3a;padding:10px 0"><span><strong>Clash Meta for Android</strong> <span style="color:#8b9bb0;font-size:12px">2.11.37</span> <span style="color:#8b9bb0;font-size:12px">· 46MB</span><br><span style="color:#8b9bb0;font-size:13px">安卓 Clash 客户端，支持订阅</span></span><a href="https://github.com/MetaCubeX/ClashMetaForAndroid/releases" target="_blank" rel="noopener nofollow" style="color:#4c9aff;text-decoration:none;white-space:nowrap">下载 →</a></div><div class="row" style="display:flex;justify-content:space-between;gap:10px;border-bottom:1px dashed #1f2b3a;padding:10px 0"><span><strong>Clash Verge</strong> <span style="color:#8b9bb0;font-size:12px">2.5.10</span> <span style="color:#8b9bb0;font-size:12px">· 57MB</span><br><span style="color:#8b9bb0;font-size:13px">Windows / macOS 图形客户端</span></span><a href="https://github.com/clash-verge-rev/clash-verge-rev/releases" target="_blank" rel="noopener nofollow" style="color:#4c9aff;text-decoration:none;white-space:nowrap">下载 →</a></div></section>
+    
+
+    
+
+    <section class="card" id="how">
+      <h2>使用说明</h2>
+      <p class="tip">下面按平台整理安装与使用步骤。</p>
+
+      <h3>一、电脑（Windows / macOS）</h3>
+      <ol class="steps">
+        <li>下载客户端：Windows 用 <strong>Clash Verge</strong> 或 <strong>v2rayN</strong>；macOS 用 <strong>Clash Verge</strong> 或 <strong>Stash</strong>。</li>
+        <li>复制本页「一键导入」里的 <code>（需口令查看）</code> 链接。</li>
+        <li>客户端里选「从剪贴板导入」，节点会出现在列表里。</li>
+        <li>开启「系统代理」（或 TUN 模式），浏览器即可翻墙。</li>
+      </ol>
+
+      <h3>二、安卓手机</h3>
+      <ol class="steps">
+        <li>安装 <strong>v2rayNG</strong> 或 <strong>Clash Meta for Android</strong>。</li>
+        <li>v2rayNG：右上角 <strong>+</strong> → 「从剪贴板导入」→ 粘贴链接。</li>
+        <li>Clash Meta：配置 → 新建 → 粘贴 YAML 或导入文件。</li>
+        <li>点右下角启动，首次会申请 VPN 权限，允许即可。</li>
+      </ol>
+
+      <h3>三、iPhone</h3>
+      <ol class="steps">
+        <li>安装 <strong>Shadowrocket</strong>（需要外区 Apple ID）。</li>
+        <li>右上角 <strong>+</strong> → 类型选 <strong>VLESS</strong>，按下表填写参数。</li>
+        <li>保存后点节点右侧开关连接。</li>
+      </ol>
+
+      <h3>四、参数速查</h3>
+      <dl class="rows">
+        <dt>地址 / Server</dt><dd>chenzhong.dpdns.org</dd>
+        <dt>端口 / Port</dt><dd>443</dd>
+        <dt>协议 / Type</dt><dd>VLESS</dd>
+        <dt>传输 / Network</dt><dd>WebSocket（ws）</dd>
+        <dt>路径 / Path</dt><dd>/</dd>
+        <dt>TLS</dt><dd>开启</dd>
+        <dt>SNI</dt><dd>chenzhong.dpdns.org</dd>
+        <dt>Host 头</dt><dd>chenzhong.dpdns.org</dd>
+        <dt>UUID</dt><dd>（口令可见）</dd>
+      </dl>
+
+      <h3>五、打不开怎么办</h3>
+      <ul class="steps">
+        <li><strong>TikTok / YouTube 打不开</strong>：检查客户端是否连上、系统代理是否开启。</li>
+        
+        <li><strong>某个网站提示 502 / 000</strong>：它可能本身就在 Cloudflare 上，应设为直连。</li>
+        <li><strong>全部网站都打不开</strong>：客户端没启动或代理端口没开，重启客户端再试。</li>
+        <li><strong>速度慢</strong>：免费公共节点人数多会变慢，换一个节点或稍后再试。</li>
+      </ul>
+
+      <h3>六、客户端手动导入</h3>
+      <p class="tip">v2rayNG <strong>不支持按域名自动分流</strong>，所以这里给你两条独立节点，需要哪个手动切哪个。</p>
+
+      <p class="tip"><strong>节点 1 · CF 节点</strong>（TikTok / YouTube / 日常浏览 用它）</p>
+      <code>（需口令查看）</code>
+
+      <p class="tip"><strong>节点 2 · 免费节点</strong>（X / Twitter / ChatGPT / Grok / Discord 用它）</p>
+      <code>（需口令查看）</code>
+
+      <ol class="steps">
+        <li>安装 <strong>v2rayNG</strong>。</li>
+        <li>复制「节点 1」链接 → v2rayNG 右上角 <strong>+</strong> → 「从剪贴板导入」。</li>
+        <li>再复制「节点 2」链接，同样导入一次。</li>
+        <li>列表里会出现两条，<strong>点一下选中</strong>要用的那条，再点右下角 <strong>▶</strong> 启动。</li>
+      </ol>
+
+      <p class="tip">记住这条规则：<strong>TikTok / YouTube 选节点 1；上 X 或 ChatGPT 时切到节点 2。</strong>嫌麻烦就用 <strong>Clash Meta for Android</strong>，它可以按域名自动切换（配置见上方“内部资源”）。</p>
+
+      <h3>七、客户端下载</h3>
+      <p class="tip">以下为常用客户端与 App 的官方/公共下载页，均需先能翻墙才能打开。</p>
+      <ul class="steps">
+        <li><strong>X（原 Twitter）安卓版</strong>：<a href="https://apkpure.com/cn/x-formerly-twitter/com.twitter.android" target="_blank" rel="noopener nofollow">APKPure 下载页</a> 或 <a href="https://twitter.en.uptodown.com/android" target="_blank" rel="noopener nofollow">Uptodown 下载页</a>（包名 <code>com.twitter.android</code>）</li>
+        <li><strong>v2rayNG（安卓）</strong>：<a href="https://github.com/2dust/v2rayNG/releases" target="_blank" rel="noopener nofollow">GitHub Releases</a></li>
+        <li><strong>Clash Meta for Android</strong>：<a href="https://github.com/MetaCubeX/ClashMetaForAndroid/releases" target="_blank" rel="noopener nofollow">GitHub Releases</a>（支持本页订阅：<code>https://chenzhong.dpdns.org/phone.yaml</code>）</li>
+        <li><strong>Clash Verge（Windows / macOS）</strong>：<a href="https://github.com/clash-verge-rev/clash-verge-rev/releases" target="_blank" rel="noopener nofollow">GitHub Releases</a></li>
+        <li><strong>Shadowrocket（iOS）</strong>：App Store 搜索，需外区 Apple ID</li>
+      </ul>
+      <p class="tip">站外链接指向第三方站点，下载前请自行核对包名与来源，安装时不勾选无关的捆绑选项。</p>
+
+      <p class="tip">本站仅收录公开软件与资源链接，所有内容版权归原作者所有。</p>
+    </section>
+
+    <section class="card" id="faq">
+      <h2>常见问题</h2>
+      <h3>这个节点怎么使用？</h3>
+      <p class="tip">在“内部资源”输入口令后获取配置，复制到支持该协议的工具中导入即可。</p>
+      <h3>节点需要付费吗？</h3>
+      <p class="tip">完全免费，长期维护。</p>
+      <h3>支持哪些平台？</h3>
+      <p class="tip">Windows、Android、macOS、iOS，任何支持 VLESS + WebSocket + TLS 的客户端都可以。</p>
+    </section>
+    <section class="card" id="privacy">
+      <h2>隐私政策</h2>
+      <p class="tip">本站不收集、不存储任何个人信息，不设置追踪 Cookie，不接入第三方统计。本站不接入任何第三方统计，访问日志由托管平台按其自身政策处理。</p>
+    </section>
+  </main>
+
+  <footer class="site">
+    <p>cat 的工具箱 · 作者 <strong>cat</strong></p>
+    <p>相关资源：
+      <a href="https://github.com/2dust/v2rayNG" target="_blank" rel="noopener nofollow">v2rayNG 客户端</a> ·
+      <a href="https://github.com/MetaCubeX/ClashMetaForAndroid" target="_blank" rel="noopener nofollow">Clash Meta for Android</a> ·
+      
+    </p>
+    <p><a href="#main">回到顶部</a> · 更新日期 2026-11-14</p>
+  </footer>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded',function(){var b=document.getElementById('copy');if(b){b.addEventListener('click',copyLink);}});
+function copyLink(){
+  var t=document.getElementById('link').innerText;
+  var b=document.getElementById('copy');
+  function done(){b.textContent='已复制 ✓';b.classList.add('ok');setTimeout(function(){b.textContent='复制链接';b.classList.remove('ok');},1600);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done).catch(fallback);}else{fallback();}
+  function fallback(){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done();}catch(e){alert('请手动长按复制');}document.body.removeChild(ta);}
+}
+</script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"77388a93a76d4f7490676c4839be4553","r":1,"spa":2}' crossorigin="anonymous"></script>
+
+<script>(function(){var PIN='cat2026';var CFG=(function(){var b=atob('FQ0RQUMIGUxWQAYDUAVSWFlTAQtTTlVDBgMfVFMEEh8EAg5UB0EABgMGAgM0UVhXWBkJG1xXHFITBRpBHl1EBFtABgMNUw0CBktARl8MD0lcX1xTRRIRUUVAXxcYSUZcQRAQDx0PU1pTDRscXV5VGAcREFxDHFkRBlJUQA9VCxMbX1UUQhoREQ9HQRALDgdGDVFeBg8OWl9cUU0FBFZeQRgMExMUQFNCC1xRAHYRVQIV');var k=PIN;var o='';for(var i=0;i<b.length;i++){o+=String.fromCharCode(b.charCodeAt(i)^k.charCodeAt(i%k.length));}return o;})();var btn=document.getElementById('pinBtn'),inp=document.getElementById('pin'),box=document.getElementById('unlocked'),cfg=document.getElementById('cfg'),msg=document.getElementById('pinMsg');if(!btn)return;function go(){if(inp.value.trim()===PIN){cfg.textContent=CFG;box.style.display='block';msg.textContent='';}else{msg.textContent='口令不对';}}btn.addEventListener('click',go);inp.addEventListener('keydown',function(e){if(e.key==='Enter')go();});})();</script></body>
+</html>
