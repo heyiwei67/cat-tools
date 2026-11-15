@@ -1,0 +1,38 @@
+mixed-port: 7890
+allow-lan: false
+mode: rule
+log-level: warning
+ipv6: false
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: redir-host
+  nameserver: [223.5.5.5, 119.29.29.29]
+  fallback: [1.1.1.1, 8.8.8.8]
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+
+proxies:
+  - {name: "新西兰2 258ms", type: ss, server: 202.50.253.54, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: false}
+  - {name: "意大利 261ms", type: ss, server: 202.50.253.63, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: false}
+  - {name: "意大利2 266ms", type: ss, server: 202.50.253.27, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: false}
+  - {name: "新西兰 294ms", type: ss, server: 202.50.253.81, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: false}
+  - {name: "新西兰3 263ms", type: ss, server: 202.50.253.45, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: false}
+
+proxy-groups:
+  - name: PROXY
+    type: url-test
+    proxies: ["新西兰2 258ms", "意大利 261ms", "意大利2 266ms", "新西兰3 263ms", "新西兰 294ms"]
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 80
+  - name: 手动选择
+    type: select
+    proxies: ["新西兰2 258ms", "意大利 261ms", "意大利2 266ms", "新西兰3 263ms", "新西兰 294ms"]
+
+rules:
+  - GEOIP,LAN,DIRECT
+  - GEOIP,CN,DIRECT
+  - MATCH,PROXY
