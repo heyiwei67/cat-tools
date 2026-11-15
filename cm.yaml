@@ -9,30 +9,76 @@ dns:
   ipv6: false
   enhanced-mode: redir-host
   nameserver: [223.5.5.5, 119.29.29.29]
-  fallback: [1.1.1.1, 8.8.8.8]
+  fallback: [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
   fallback-filter:
     geoip: true
     geoip-code: CN
 
 proxies:
-  - {name: "新西兰2 258ms", type: ss, server: 202.50.253.54, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: false}
-  - {name: "意大利 261ms", type: ss, server: 202.50.253.63, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: false}
-  - {name: "意大利2 266ms", type: ss, server: 202.50.253.27, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: false}
-  - {name: "新西兰 294ms", type: ss, server: 202.50.253.81, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: false}
-  - {name: "新西兰3 263ms", type: ss, server: 202.50.253.45, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: false}
+  - {name: "新西兰2", type: ss, server: 202.50.253.54, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true}
+  - {name: "意大利", type: ss, server: 202.50.253.63, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true}
+  - {name: "意大利2", type: ss, server: 202.50.253.27, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true}
+  - {name: "新西兰", type: ss, server: 202.50.253.81, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true}
+  - {name: "新西兰3", type: ss, server: 202.50.253.45, port: 19999, cipher: aes-256-gcm, password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=", udp: true}
 
 proxy-groups:
   - name: PROXY
     type: url-test
-    proxies: ["新西兰2 258ms", "意大利 261ms", "意大利2 266ms", "新西兰3 263ms", "新西兰 294ms"]
+    proxies: ["新西兰2", "意大利", "意大利2", "新西兰3", "新西兰"]
     url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 80
   - name: 手动选择
     type: select
-    proxies: ["新西兰2 258ms", "意大利 261ms", "意大利2 266ms", "新西兰3 263ms", "新西兰 294ms"]
+    proxies: ["新西兰2", "意大利", "意大利2", "新西兰3", "新西兰"]
 
 rules:
+  - DOMAIN-SUFFIX,qq.com,DIRECT
+  - DOMAIN-SUFFIX,tencent.com,DIRECT
+  - DOMAIN-SUFFIX,weixin.qq.com,DIRECT
+  - DOMAIN-SUFFIX,wechat.com,DIRECT
+  - DOMAIN-SUFFIX,baidu.com,DIRECT
+  - DOMAIN-SUFFIX,bdstatic.com,DIRECT
+  - DOMAIN-SUFFIX,bilibili.com,DIRECT
+  - DOMAIN-SUFFIX,hdslb.com,DIRECT
+  - DOMAIN-SUFFIX,taobao.com,DIRECT
+  - DOMAIN-SUFFIX,tmall.com,DIRECT
+  - DOMAIN-SUFFIX,alicdn.com,DIRECT
+  - DOMAIN-SUFFIX,alipay.com,DIRECT
+  - DOMAIN-SUFFIX,aliyun.com,DIRECT
+  - DOMAIN-SUFFIX,aliyuncs.com,DIRECT
+  - DOMAIN-SUFFIX,163.com,DIRECT
+  - DOMAIN-SUFFIX,126.net,DIRECT
+  - DOMAIN-SUFFIX,netease.com,DIRECT
+  - DOMAIN-SUFFIX,sina.com.cn,DIRECT
+  - DOMAIN-SUFFIX,weibo.com,DIRECT
+  - DOMAIN-SUFFIX,zhihu.com,DIRECT
+  - DOMAIN-SUFFIX,douyin.com,DIRECT
+  - DOMAIN-SUFFIX,kuaishou.com,DIRECT
+  - DOMAIN-SUFFIX,xiaomi.com,DIRECT
+  - DOMAIN-SUFFIX,mi.com,DIRECT
+  - DOMAIN-SUFFIX,huawei.com,DIRECT
+  - DOMAIN-SUFFIX,oppo.com,DIRECT
+  - DOMAIN-SUFFIX,vivo.com,DIRECT
+  - DOMAIN-SUFFIX,iqiyi.com,DIRECT
+  - DOMAIN-SUFFIX,youku.com,DIRECT
+  - DOMAIN-SUFFIX,csdn.net,DIRECT
+  - DOMAIN-SUFFIX,cnblogs.com,DIRECT
+  - DOMAIN-SUFFIX,gitee.com,DIRECT
+  - DOMAIN-SUFFIX,jianshu.com,DIRECT
+  - DOMAIN-SUFFIX,douban.com,DIRECT
+  - DOMAIN-SUFFIX,meituan.com,DIRECT
+  - DOMAIN-SUFFIX,dianping.com,DIRECT
+  - DOMAIN-SUFFIX,ctrip.com,DIRECT
+  - DOMAIN-SUFFIX,pinduoduo.com,DIRECT
+  - DOMAIN-SUFFIX,jd.com,DIRECT
+  - DOMAIN-SUFFIX,360.cn,DIRECT
+  - DOMAIN-SUFFIX,so.com,DIRECT
+  - DOMAIN-SUFFIX,sogou.com,DIRECT
+  - DOMAIN-SUFFIX,bytedance.com,DIRECT
+  - DOMAIN-SUFFIX,toutiao.com,DIRECT
+  - DOMAIN-SUFFIX,xhscdn.com,DIRECT
+  - DOMAIN-SUFFIX,miui.com,DIRECT
   - DOMAIN-SUFFIX,google.com,PROXY
   - DOMAIN-SUFFIX,googleapis.com,PROXY
   - DOMAIN-SUFFIX,gstatic.com,PROXY
