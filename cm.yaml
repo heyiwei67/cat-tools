@@ -3,6 +3,7 @@ allow-lan: false
 mode: rule
 log-level: warning
 ipv6: false
+tcp-concurrent: true
 
 dns:
   enable: true
@@ -11,6 +12,21 @@ dns:
   nameserver: [223.5.5.5, 119.29.29.29]
   fallback: [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
   fallback-filter:
+    domain:
+      - '+.google.com'
+      - '+.youtube.com'
+      - '+.x.com'
+      - '+.twitter.com'
+      - '+.openai.com'
+      - '+.chatgpt.com'
+      - '+.instagram.com'
+      - '+.facebook.com'
+      - '+.telegram.org'
+      - '+.discord.com'
+      - '+.github.com'
+      - '+.wikipedia.org'
+      - '+.pixiv.net'
+      - '+.netflix.com'
     geoip: true
     geoip-code: CN
     ipcidr:
@@ -40,6 +56,8 @@ proxy-groups:
     url: https://cp.cloudflare.com/generate_204
     interval: 300
     tolerance: 50
+    expected-status: "204"
+    max-fail: 3
     lazy: true
   - name: 手动选择
     type: select
