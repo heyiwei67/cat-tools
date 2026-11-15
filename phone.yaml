@@ -1,7 +1,7 @@
 mixed-port: 7890
 allow-lan: false
 mode: rule
-log-level: info
+log-level: warning
 ipv6: false
 unified-delay: true
 
@@ -9,15 +9,9 @@ dns:
   enable: true
   ipv6: false
   enhanced-mode: redir-host
-  default-nameserver:
-    - 223.5.5.5
-    - 119.29.29.29
-  nameserver:
-    - 223.5.5.5
-    - 119.29.29.29
-  fallback:
-    - 1.1.1.1
-    - 8.8.8.8
+  default-nameserver: [223.5.5.5, 119.29.29.29]
+  nameserver: [223.5.5.5, 119.29.29.29]
+  fallback: [1.1.1.1, 8.8.8.8]
   fallback-filter:
     geoip: true
     geoip-code: CN
@@ -28,21 +22,27 @@ proxy-providers:
     url: "https://raw.githubusercontent.com/ripaojiedian/freenode/main/sub"
     interval: 21600
     path: ./providers/ripao.yaml
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 300
-      lazy: true
+    health-check: { enable: true, url: https://www.gstatic.com/generate_204, interval: 600, lazy: true }
   FREEFQ:
     type: http
     url: "https://raw.githubusercontent.com/freefq/free/master/v2"
     interval: 21600
     path: ./providers/freefq.yaml
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 300
-      lazy: true
+    health-check: { enable: true, url: https://www.gstatic.com/generate_204, interval: 600, lazy: true }
+  ERMAOZI:
+    type: http
+    url: "https://gh-proxy.com/https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/v2ray.txt"
+    interval: 21600
+    path: ./providers/ermaozi.yaml
+    filter: "(?i)(香港|台湾|日本|新加坡|韩国|美国|HK|TW|JP|SG|US)"
+    health-check: { enable: true, url: https://www.gstatic.com/generate_204, interval: 600, lazy: true }
+  PEASOFT:
+    type: http
+    url: "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.txt"
+    interval: 21600
+    path: ./providers/peasoft.yaml
+    filter: "(?i)(香港|台湾|日本|新加坡|韩国|美国|HK|TW|JP|SG|US)"
+    health-check: { enable: true, url: https://www.gstatic.com/generate_204, interval: 600, lazy: true }
 
 proxies:
   - name: "CF-Pages"
@@ -150,15 +150,18 @@ proxy-groups:
   - name: PROXY
     type: url-test
     proxies: ["FX-意大利|@ripaoj", "FX-意大利2|@ripao", "FX-新西兰+V2CROSS", "FX-新西兰+V2C-2", "FX-新西兰+V2C-3"]
-    use: [RIPAO, FREEFQ]
+    use: [RIPAO, FREEFQ, ERMAOZI, PEASOFT]
     url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 100
+    lazy: true
+  - name: 手动
+    type: select
+    use: [RIPAO, FREEFQ, ERMAOZI, PEASOFT]
 
 rules:
   - DOMAIN-SUFFIX,github.io,DIRECT
   - DOMAIN-SUFFIX,dpdns.org,DIRECT
-  - DOMAIN-SUFFIX,net.coffee,DIRECT
   - GEOIP,LAN,DIRECT
   - GEOIP,CN,DIRECT
   - MATCH,PROXY
