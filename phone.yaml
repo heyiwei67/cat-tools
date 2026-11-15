@@ -1,0 +1,51 @@
+mixed-port: 7890
+allow-lan: false
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: redir-host
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  fallback:
+    - 1.1.1.1
+    - 8.8.8.8
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+
+proxy-providers:
+  RIPAO:
+    type: http
+    url: "https://raw.githubusercontent.com/ripaojiedian/freenode/main/sub"
+    interval: 21600
+    path: ./providers/ripao.yaml
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+      lazy: true
+
+proxy-groups:
+  - name: PROXY
+    type: url-test
+    use: [RIPAO]
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 80
+
+rules:
+  - DOMAIN-SUFFIX,dpdns.org,DIRECT
+  - DOMAIN-SUFFIX,github.io,DIRECT
+  - DOMAIN-SUFFIX,net.coffee,DIRECT
+  - GEOIP,LAN,DIRECT
+  - GEOIP,CN,DIRECT
+  - MATCH,PROXY
